@@ -1,5 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  display: block;
 }
 p {
   font-weight: bolder;
@@ -8,20 +9,20 @@ ul li {
   list-style: none;
 }
 
+.imgPack{
+  display: block;
+  width: 100%;
+  object-fit: contain;
+}
 .imgPack img {
   border-style: solid;
   border-radius: 25%;
-  transition:width 3s, height 2s,border-color 2s;
-}
-
-.imgPack a {
-  padding: 30px;
-  float: inline-end;
-  margin-right: 150px;
+  transition: width 3s, height 2s, border-color 2s;
+  box-shadow: 10px 10px 5px lightslategray;
 }
 
 .imgPack img:hover {
   width: 250px;
   height: 250px;
-  border-color:blue;
-  box-shadow: 5px 5px 5px  lightslategray;
+  border-color: blue;
+}
