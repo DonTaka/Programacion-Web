@@ -1,3 +1,27 @@
-body{
-    font-size: 20px;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
+p {
+  font-weight: bolder;
+}
+ul li {
+  list-style: none;
+}
+
+.imgPack img {
+  border-style: solid;
+  border-radius: 25%;
+  transition:width 3s, height 2s,border-color 2s;
+}
+
+.imgPack a {
+  padding: 30px;
+  float: inline-end;
+  margin-right: 150px;
+}
+
+.imgPack img:hover {
+  width: 250px;
+  height: 250px;
+  border-color:blue;
+  box-shadow: 5px 5px 5px  lightslategray;
