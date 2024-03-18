@@ -3,10 +3,10 @@
 
 Listado de Extensiones
 
-One dark (Tema Visual Studio)
-Material Icon Theme (Iconos VSCode)
-HTML CSS Support (Intellisense CSS para HTML)
-Prettier (Formateador de codigo- Ordenador)
-Auto Rename Tag(Cambia Tags en par)
-Better Comments (Mejora los colores de los comentarios)
+One dark (Tema Visual Studio)<br>
+Material Icon Theme (Iconos VSCode)<br>
+HTML CSS Support (Intellisense CSS para HTML)<br>
+Prettier (Formateador de codigo- Ordenador)<br>
+Auto Rename Tag(Cambia Tags en par)<br>
+Better Comments (Mejora los colores de los comentarios)<br>
 Live Preview (Permite ver cambios en vivo de la pagina)
