@@ -1,29 +1,50 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  display: block;
-  margin: auto;
+body{
+    background-color: blue;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-p {
-  font-weight: bolder;
-}
-ul li {
-  list-style: none;
+h1,h2{
+    text-align: center;
 }
 
-.imgPack{
-  display: block;
-  width: 100%;
-  object-fit: contain;
+ul{
+    text-align: center;
+    list-style: none;
 }
-.imgPack img {
-  border-style: solid;
-  border-radius: 25%;
-  transition: width 3s, height 2s, border-color 2s;
-  box-shadow: 10px 10px 5px lightslategray;
+.center{
+    margin:auto;
+    width: 50%;
+    text-align: center;
+    border: 3px solid white;
+    padding: 20px;
+}
+img{
+    display: block;
+    margin: auto;
+    border: 3px solid white;
+    border-radius: 25%;
+    transition: height 2s , width 2s,border-color 2s;
+}
+img:hover{
+    width: 280px;
+    height: 240px;
+    border-color: red;
 }
 
-.imgPack img:hover {
-  width: 250px;
-  height: 250px;
-  border-color: blue;
+a{
+    color: black;
+    display: block;
+    text-align: center;
+    background-color: darkgray;
+    width: 25%;
+    margin: auto;
+    border-radius: 25%;
+    padding: 5px;
+    border: 2px solid white;
+    text-decoration: none;
 }
+
+
+
+
+
