@@ -1,0 +1,13 @@
+Formulario de registro
+
+6 Datos
+
+Nombre Completo (Input)
+Rut (Input)
+Correo (Input)
+Fecha Nacimiento (Input)
+Genero (radio)
+Nivel Estudio (select)
+
+Debe ser integrado con bootstrap
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <form action="" method="POST" class="col-6 mx-auto shadow-lg p-5 text-center">
+                <h1>Login Screen</h1>
+                <div class="form-floating mb-2 w-50 mx-auto">
+                    <input type="text" class="form-control" name=" username" id="username"
+                        placeholder="Ingrese su usuario">
+                    <label for="username">Usuario:</label></div>
+                <div class="form-floating mb-2 w-50 mx-auto">
+                    <input type="password" class="form-control" name=" pass" id="pass"
+                        placeholder="Ingrese su contraseña">
+                    <label for="pass">Contraseña:</label>
+                </div>
+                <div class="form-floating mb-2 w-50 mx-auto">
+                    <select class="form-select" name="optRol" id="optRol">
+                        <option value="">Seleccione</option>
+                        <option value="">Invitado</option>
+                        <option value="">Estudiante</option>
+                        <option value="">Docente</option>
+                        <option value="">Administrativo</option>
+                    </select>
+
+                    <label for="optRol">Rol</label>
+                </div>
+                <div>
+                    <input type="submit" value="Ingresar" class="btn btn-outline-primary">
+                    <input type="reset" value="Limpiar" class="btn btn-outline-warning">
+                    <button class="btn btn-outline-success">Click me</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src=" ../js/bootstrap.bundle.min.js"> </script>
+</body>
+
+</html>
