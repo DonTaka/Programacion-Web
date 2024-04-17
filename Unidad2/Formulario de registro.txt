@@ -10,4 +10,7 @@ Genero (radio)
 Nivel Estudio (select)
 
 Debe ser integrado con bootstrap
+Tiene que quedar ordenado
+
+
 

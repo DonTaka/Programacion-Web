@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <form action="" method="POST" class="col-6 mx-auto shadow-lg mt-3 text-center">
+                <h3>Login</h3>
+                <div class="w-50 mx-auto mb-3">
+                    <img src="../img/Doggo.jpg" class="w-25 rounded-circle opacity-50" alt="">
+                </div>
+                <div class=" form-floating w-50 mx-auto mb-3">
+                    <input type="text" class="form-control" name="user" id="user" placeholder="Ingrese su usuario">
+                    <label for="user">Usuario:</label>
+                </div>
+                <div class="form-floating w-50 mx-auto mb-3">
+                    <input type="password" class="form-control" name=" pass" id="pass"
+                        placeholder="Ingrese su contraseña">
+                    <label for="pass">Contraseña:</label>
+                </div>
+                <div class="form-floating w-50 mx-auto mb-3">
+                    <select class="form-select" name=" optRol" id="optRol">
+                        <option value="0">Seleccione</option>
+                        <option value="1">Invitado</option>
+                        <option value="2">Estudiante</option>
+                        <option value="3">Docente</option>
+                        <option value="4">Administrativo</option>
+                    </select>
+                    <label for="optRol">Rol:</label>
+                </div>
+                <div id="resultado">
+
+                </div>
+                <div class="form-floating w-50 mx-auto mb-3">
+                    <input type="submit" value="Ingresar" class="btn btn-outline-primary">
+                    <input type="reset" value="Limpiar" class="btn btn-outline-warning">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        var user = document.getElementById("user").value;
+        var pass = document.getElementById("pass").value;
+
+        
+    </script>
+</body>
+
+</html>
