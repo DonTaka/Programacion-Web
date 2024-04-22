@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../js/funciones.js"></script>
 </head>
 
 <body>
@@ -36,21 +39,46 @@
                     <label for="optRol">Rol:</label>
                 </div>
                 <div id="resultado">
-
                 </div>
-                <div class="form-floating w-50 mx-auto mb-3">
-                    <input type="submit" value="Ingresar" class="btn btn-outline-primary">
-                    <input type="reset" value="Limpiar" class="btn btn-outline-warning">
+                <div class=" form-floating w-50 mx-auto mb-3">
+                    <input type="submit" id="btnSub" value="Ingresar" class="btn btn-outline-primary">
+                    <input type="reset" id="btnRes" value="Limpiar" class="btn btn-outline-warning">
+                    <button type="button" class="btn btn-outline-success" id="btnValidar">Validar</button>
                 </div>
             </form>
         </div>
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
-        var user = document.getElementById("user").value;
-        var pass = document.getElementById("pass").value;
+        $(document).ready(function () {
+            /* 
+                Para declaraciones de javascript usaremos let y const 
+                let para variables que pueden modificarse en el tiempo
+                const para variables que no van a cambiar
+            */
+            /* JS nativo */
+            let user = document.getElementById("user").value;
+            /* Jquery */
+            let us = $("#user").val();
 
-        
+            $("#btnValidar").click(function () {
+                /* toggle alterna entre mostrar y ocultar */
+                $("#btnSub").toggle(500);
+                $("#btnRes").toggle(500);
+            });
+
+            $("#user").blur(function () {
+                let us = $("#user").val();
+                console.log(String(us).length);
+                if (String(us).length > 0) {
+                    $("#user").css("border", "1px solid lightgrey");
+                } else {
+                    alert("Usuario Vacio");
+                    $("#user").css("border", "1px solid red");
+
+                }
+            });
+        });
     </script>
 </body>
 
