@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <script src="../js/funciones.js"></script>
 </head>
 
@@ -51,31 +52,18 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function () {
-            /* 
-                Para declaraciones de javascript usaremos let y const 
-                let para variables que pueden modificarse en el tiempo
-                const para variables que no van a cambiar
-            */
-            /* JS nativo */
-            let user = document.getElementById("user").value;
-            /* Jquery */
-            let us = $("#user").val();
-
             $("#btnValidar").click(function () {
-                /* toggle alterna entre mostrar y ocultar */
                 $("#btnSub").toggle(500);
                 $("#btnRes").toggle(500);
             });
-
-            $("#user").blur(function () {
-                let us = $("#user").val();
-                console.log(String(us).length);
-                if (String(us).length > 0) {
-                    $("#user").css("border", "1px solid lightgrey");
+            $("#user").focusout(function () {
+                const user = $("#user").val();
+                if (String(user).length >= 8) {
+                    /* 
+                    $("#user").css("border", "1px solid lightgrey"); */
+                    document.getElementById("user").style.border = "1px solid lightgrey";
                 } else {
-                    alert("Usuario Vacio");
-                    $("#user").css("border", "1px solid red");
-
+                    $("#user").css("border", "5px solid red");
                 }
             });
         });

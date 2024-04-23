@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/funciones.js"></script>
 </head>
 
 <body>
@@ -31,25 +32,17 @@
                     </select>
                     <label for="optRol">Rol</label>
                 </div>
-                <div class="alert alert-danger col-4 mx-auto">
-                    <p>Alerta de prueba</p>
+                <div id="resultado">
                 </div>
                 <div class="form-group col-6 mx-auto">
                     <input type="button" value="Ingresar" class="btn btn-outline-primary" onclick="validar()">
                     <input type="reset" value="Limpiar" class="btn btn-outline-warning">
-                    <button class="btn btn-outline-success">Click me</button>
+                    <button type="button" onclick="validar()" class="btn btn-outline-success">Validar</button>
                 </div>
             </form>
         </div>
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script>
-        function validar() {
-            var user = document.getElementById("username").value
-            var pass = document.getElementById("pass").value;
-            console.log("User: " + user + " - Password: " + pass)
-        }
-    </script>
 </body>
 
 </html>
