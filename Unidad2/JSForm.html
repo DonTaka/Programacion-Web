@@ -21,7 +21,6 @@
                     <input type="number" id="num2" name="num2" placeholder="Ingrese numero">
                 </div><br>
                 <div id="resultado">
-
                 </div>
                 <div>
                     <button type="button" onclick="sumar()">Calcular</button>
@@ -31,19 +30,17 @@
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
-        /* 
-        VAR declaracion de variable simple o mas antigua
-        actualmente se usan LET y CONST
-        LET son variables que cambian en el tiempo 
-        CONST variable constante no cambia en el tiempo 
-        */
         function sumar() {
+            /* 
+            var : forma de declaracion de variable segun forma antigua
+            let : declara variable que cambia en el tiempo
+            const : declara variable que no cambia en el tiempo             
+            */
             let num1 = document.getElementById("num1").value;
             let num2 = document.getElementById("num2").value;
-            /* console.log("Num1 : " + num1 + " || Num2 : " + num2) */
+            /* console.log(num1 + " || " + num2); */
             let suma = Number(num1) + Number(num2);
-
-            document.getElementById("resultado").innerHTML = "<p>La suma de los valores es: " + suma + " </p>";
+            document.getElementById("resultado").innerHTML = "<p>La suma de los valores es: " + suma + "</p>"
         }
     </script>
 </body>

@@ -31,18 +31,18 @@
                 </div>
                 <div class="form-floating w-50 mx-auto mb-3">
                     <select class="form-select" name=" optRol" id="optRol">
-                        <option value="0">Seleccione</option>
-                        <option value="1">Invitado</option>
-                        <option value="2">Estudiante</option>
-                        <option value="3">Docente</option>
-                        <option value="4">Administrativo</option>
+                        <option>Seleccione</option>
+                        <option>Invitado</option>
+                        <option>Estudiante</option>
+                        <option>Docente</option>
+                        <option>Administrativo</option>
                     </select>
                     <label for="optRol">Rol:</label>
                 </div>
                 <div id="resultado">
                 </div>
                 <div class=" form-floating w-50 mx-auto mb-3">
-                    <input type="submit" id="btnSub" value="Ingresar" class="btn btn-outline-primary">
+                    <input type="button" id="btnSub" value="Ingresar" class="btn btn-outline-primary">
                     <input type="reset" id="btnRes" value="Limpiar" class="btn btn-outline-warning">
                     <button type="button" class="btn btn-outline-success" id="btnValidar">Validar</button>
                 </div>
@@ -52,6 +52,25 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function () {
+            /* Ejemplo JSON 
+                username:Text
+                password:Text
+                Rol:Text    
+            
+            */
+            let login = {
+                "username": "",
+                "password": "",
+                "rol": ""
+            }
+            $("#btnSub").click(function () {
+                console.log(login);
+                login.username = $("#user").val();
+                login.password = $("#pass").val();
+                login.rol = $("#optRol").val();
+                console.log(login.username);
+            })
+
             $("#btnValidar").click(function () {
                 $("#btnSub").toggle(500);
                 $("#btnRes").toggle(500);

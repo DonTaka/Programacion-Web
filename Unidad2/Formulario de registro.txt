@@ -1,6 +1,6 @@
 Formulario de registro
 
-6 Datos
+3 Datos
 
 Nombre Completo (Input) Minimo 15 
 Rut (Input) largo 10 

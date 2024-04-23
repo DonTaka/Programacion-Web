@@ -1,23 +1,33 @@
 function validar() {
-    /* Validar los siguientes campos:
-        username: min 6 max 15 
-        password: min 8 
+    /* 
+        username: min 5 max 30 
+        password: largo min 8 
     */
-    let user = document.getElementById("username").value;
-    let pass = document.getElementById("pass").value;
-    if (String(user).length >= 6 && String(user).length <= 15) {
+
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("pass").value;
+    if (String(user).length >= 5 && String(user).length <= 30) {
+        var res = document.getElementById("username");
+        res.style.border = "1px solid green"
         if (String(pass).length >= 8) {
-            /* Credenciales correctas */
+            /* Correcto */
+            var res = document.getElementById("pass");
+            res.style.border = "1px solid green"
             document.getElementById("resultado").innerHTML = "<div class='alert alert-success w-50 mx-auto text-center'>" +
-                "Acceso Concedido </div>"
+                "Acceso Concedido</div>"
         } else {
-            /* Pass Error */
+            /* Error pass */
+
+            var res = document.getElementById("pass");
+            res.style.border = "1px solid red"
             document.getElementById("resultado").innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>" +
-                "Contraseña debe tener minimo 8 caracteres </div>"
+                "Contraseña debe tener minimo 8 caracteres</div>"
         }
     } else {
-        /* Usuario error */
+        /* Error User */
+        var res = document.getElementById("username");
+        res.style.border = "1px solid red"
         document.getElementById("resultado").innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>" +
-            "Usuario debe tener minimo 6 y maximo 15 caracteres </div>"
+            "Usuario debe tener minimo 5 y maximo 30 caracteres</div>";
     }
 }
