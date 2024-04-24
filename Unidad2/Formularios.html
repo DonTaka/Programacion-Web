@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <script src="../js/funciones.js"></script>
 </head>
 
 <body>
@@ -15,7 +14,8 @@
             <form action="" method="POST" class="col-md-4 mx-auto shadow-lg text-center mt-3 p-5">
                 <h3>Login</h3>
                 <div class="form-floating col-6 mx-auto mb-2">
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Ingrese usuario">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Ingrese usuario"
+                        required>
                     <label for="username">Usuario</label>
                 </div>
                 <div class="form-floating col-6 mx-auto mb-2">
@@ -35,7 +35,7 @@
                 <div id="resultado">
                 </div>
                 <div class="form-group col-6 mx-auto">
-                    <input type="button" value="Ingresar" class="btn btn-outline-primary" onclick="validar()">
+                    <input type="submit" value="Ingresar" class="btn btn-outline-primary" onclick="validar()">
                     <input type="reset" value="Limpiar" class="btn btn-outline-warning">
                     <button type="button" onclick="validar()" class="btn btn-outline-success">Validar</button>
                 </div>
@@ -43,6 +43,7 @@
         </div>
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/funciones.js"></script>
 </body>
 
 </html>

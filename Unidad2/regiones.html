@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <form action="" class="col-6 mx-auto text-center shadow-lg">
+                <h2>Regiones</h2>
+                <div class="form-floating">
+                    <select name="optRegion" id="optRegion">
+
+                    </select>
+                </div>
+                <div class="form-floating">
+                    <select name="optComuna" id="optComuna">
+
+                    </select>
+
+                </div>
+                <div id="resultado">
+
+                </div>
+                <div class="form-floating">
+                    <button type="button">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.getJSON("https://apis.digital.gob.cl/dpa/regiones", function (data) {
+                console.log(data)
+                /* 
+                                $.each(data, function (i, item) {
+                                    console.log(item);
+                                }) */
+            })
+        })
+    </script>
+</body>
+
+</html>
