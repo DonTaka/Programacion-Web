@@ -12,38 +12,58 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <table class="table table-dark mt-5  w-75 table-bordered table-striped mx-auto ">
-                <thead>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Foto</th>
-                    <th>Descripcion</th>
-                </thead>
-                <tbody id="resultado">
-
-                </tbody>
-            </table>
+            <div class="col-8 mx-auto mt-3">
+                <h1 class="text-center">Tabla de comidas </h1>
+                <table class="table table-dark table-striped table-bordered">
+                    <thead>
+                        <th>Front Normal</th>
+                        <th>Back Normal</th>
+                        <th>Artwork Normal</th>
+                        <th>Front Shiny</th>
+                        <th>Back Shiny</th>
+                        <th>Artwork Shiny</th>
+                    </thead>
+                    <tbody id="tabla">
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-
-
-
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
     <script>
-        $(document).ready(function () {
+        /* $(document).ready(function () {
             $.get("https://www.themealdb.com/api/json/v1/1/categories.php", function (data) {
                 $.each(data.categories, function (i, item) {
-                    $("#resultado").append("<tr>" +
+                    $("#tabla").append("<tr>" +
                         "<td>" + item.idCategory + "</td>" +
                         "<td>" + item.strCategory + "</td>" +
-                        "<td> <img src='" + item.strCategoryThumb + "'></td>" +
-                        "<td>" + item.strCategoryDescription + "</td>" +
-                        "</tr>");
+                        "<td><img src='" + item.strCategoryThumb + "'></td>" +
+                        "<td>" + item.strCategoryDescription + "</td></tr>");
                 })
             })
-        })
+        }); */
+
+        $(document).ready(function () {
+            for (let index = 1; index < 50; index++) {
+                $.get("https://pokeapi.co/api/v2/pokemon/" + index + "/", function (data) {
+                    console.log(data);
+                    $("#tabla").append("<tr>" +
+                        "<td><img src='" + data.sprites.front_default + "'></td>" +
+                        "<td><img src='" + data.sprites.back_default + "'></td>" +
+                        "<td><img src='" + data.sprites.other.home.front_default +
+                        "'class='w-75'></td>" +
+                        "<td><img src='" + data.sprites.front_shiny + "'></td>" +
+                        "<td><img src='" + data.sprites.back_shiny + "'></td>" +
+                        "<td><img src='" + data.sprites.other.home.front_shiny +
+                        "' class='w-75'></td>" + "</tr>"
+                    )
+                })
+            }
+
+        });
     </script>
+
 </body>
 
 </html>

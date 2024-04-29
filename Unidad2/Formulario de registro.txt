@@ -10,5 +10,8 @@ Debe ser integrado con bootstrap
 JS debe ser externo
 Tiene que quedar ordenado
 
-
+Librerias 
+Parsley.JS
+validate.JS
+Validation engine
 

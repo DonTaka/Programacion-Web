@@ -6,19 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Local -->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <!-- CDN -->
+    <!-- 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <script src="../js/funciones.js"></script>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
-            <form action="" method="POST" class="col-6 mx-auto shadow-lg mt-3 text-center">
+            <form action="" id="formulario" method="POST" class="col-6 mx-auto shadow-lg mt-3 text-center">
                 <h3>Login</h3>
                 <div class="w-50 mx-auto mb-3">
-                    <img src="../img/Doggo.jpg" class="w-25 rounded-circle opacity-50" alt="">
+                    <img src="../img/Doggo.jpg" class="w-25 rounded-circle opacity-75" alt="">
                 </div>
                 <div class=" form-floating w-50 mx-auto mb-3">
                     <input type="text" class="form-control" name="user" id="user" placeholder="Ingrese su usuario">
@@ -52,40 +54,63 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function () {
-            /* Ejemplo JSON 
-                username:Text
-                password:Text
-                Rol:Text    
-            
-            */
-            let login = {
-                "username": "",
-                "password": "",
-                "rol": ""
-            }
-            $("#btnSub").click(function () {
-                console.log(login);
-                login.username = $("#user").val();
-                login.password = $("#pass").val();
-                login.rol = $("#optRol").val();
-                console.log(login.username);
-            })
 
             $("#btnValidar").click(function () {
                 $("#btnSub").toggle(500);
                 $("#btnRes").toggle(500);
-            });
-            $("#user").focusout(function () {
-                const user = $("#user").val();
-                if (String(user).length >= 8) {
+            })
+            /* Forma Jquery */
+            let user = $("#user");
+            /* Forma JS */
+            let pass = document.getElementById("pass");
+
+            let login = {
+                /* "Atributo:"valor" */
+                "usuario": user,
+                "password": pass,
+                "rol": ""
+            }
+            login.rol = $("#optRol").val();
+            
+            /* let carrito = {
+                "productos": [
+                    "producto" = {
+                        "id": 1,
+                        "nombre": "",
+                        "precio": 1000
+                    }
+                ]
+            }
+            let producto = {
+                "id": 0,
+                "nombre": "",
+                "precio": 0
+            }
+            $("#btnAgregarCarro").click(function () {
+                let id = $("#idProducto").val();
+                let nombre = $("#nombre").val();
+                let precio = $("#precio").val();
+                producto.id = id;
+                producto.nombre = nombre;
+                producto.precio = precio;
+                carrito.productos.push(producto);
+                carrito.productos[0].nombre;
+                carrito.productos.forEach(item => {
+                    console.log(item.nombre)
+                });
+            })
+ */
+            user.keydown(function () {
+                if (String(user.val()).length <= 8) {
                     /* 
-                    $("#user").css("border", "1px solid lightgrey"); */
-                    document.getElementById("user").style.border = "1px solid lightgrey";
+                    user.css("border","3px solid red"); */
+                    document.getElementById("user").style.border = "3px solid red";
                 } else {
-                    $("#user").css("border", "5px solid red");
+                    user.css("border", "3px solid green");
                 }
-            });
-        });
+            })
+
+        })
     </script>
 </body>
 
