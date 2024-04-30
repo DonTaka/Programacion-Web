@@ -99,7 +99,7 @@
                 </div>
                 <div id="check">
 
-                </div>
+                </div>                
                 <div class="w-50 mx-auto mb-3">
                     <button type="button" id="btnEnviar" class="btn btn-outline-primary">Ingresar</button>
                     <button type="button" id="btnGenerar" class="btn btn-outline-success">Generar Carta</button>
@@ -107,10 +107,30 @@
 
 
             </form>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5 text-center mx-auto" id="exampleModalLabel">Carta Generada</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-50 text-center mx-auto" id="res">
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src=" ../js/bootstrap.bundle.min.js"> </script>
+    <script src=" ../js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
     </script>
     <script src="../js/func.js"></script>

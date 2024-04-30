@@ -1,10 +1,9 @@
 $(document).ready(function () {
 
-
     $("#btnEnviar").click(function () {
         $("#formulario").submit();
     })
-
+    
     $("#btnGenerar").click(function () {
         let rut = $("#txtRut").val();
         let nombre = $("#txtNombre").val();
@@ -17,8 +16,22 @@ $(document).ready(function () {
         let telefono = $("#txtTelefono").val();
         let profesion = $("#txtProf").val();
         let comentario = $("#txtComentario").val();
-        console.log(genero)
-        validarDatos(rut, nombre, appaterno, apmaterno, edad, genero, telefono)
+        let res = validarDatos(rut, nombre, appaterno, apmaterno, edad, genero, telefono)
+        if (res) {
+            $("#exampleModal").modal("show");
+            $("#res").html("")
+            $("#res").append("<p>");
+            $("#res").append("Rut: " + rut + "<br>");
+            $("#res").append("Nombre Completo: " + nombre + " " + appaterno + " " + apmaterno + "<br>");
+            $("#res").append("Fecha: " + fecha + "<br>");
+            $("#res").append("Edad: " + edad + "<br>");
+            $("#res").append("Genero: " + genero + "<br>");
+            $("#res").append("Correo: " + mail + "<br>");
+            $("#res").append("Telefono: " + telefono + "<br>");
+            $("#res").append("Profesion: " + profesion + "<br>");
+            $("#res").append("Aspiraciones: " + comentario + "<br>");
+            $("#res").append("</p>");
+        }
     })
 
     function validarDatos(rut, nombre, appaterno, apmaterno, edad, genero, celular) {
@@ -47,8 +60,7 @@ $(document).ready(function () {
             $("#check").html("<div class='alert alert-danger w-50 mx-auto text-center' >Telefono debe tener entre 9 y 12 digitos</div>");
         } else {
             /* Confirmacion */
-            $("#check").html("<div class='alert alert-success w-50 mx-auto text-center' >Datos Ingresado con exito</div>");
-
+            return true;
         }
 
     }

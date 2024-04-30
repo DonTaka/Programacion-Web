@@ -45,7 +45,7 @@
         }); */
 
         $(document).ready(function () {
-            for (let index = 1; index < 50; index++) {
+            for (let index = 1; index < 100; index++) {
                 $.get("https://pokeapi.co/api/v2/pokemon/" + index + "/", function (data) {
                     console.log(data);
                     $("#tabla").append("<tr>" +
