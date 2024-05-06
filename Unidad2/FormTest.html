@@ -54,24 +54,32 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function () {
-
-            $("#btnValidar").click(function () {
-                $("#btnSub").toggle(500);
-                $("#btnRes").toggle(500);
-            })
             /* Forma Jquery */
             let user = $("#user");
             /* Forma JS */
             let pass = document.getElementById("pass");
+            let rol = $("#optRol");
 
+            /* Ejemplo de JSON construido */
             let login = {
-                /* "Atributo:"valor" */
-                "usuario": user,
-                "password": pass,
-                "rol": ""
+                /* "atributo":"valor" */
+                "username": "",
+                "password": "",
+                "role": ""
             }
-            login.rol = $("#optRol").val();
-            
+            console.log(login)
+
+
+            $("#btnValidar").click(function () {
+                $("#btnSub").toggle(500);
+                $("#btnRes").toggle(500);
+                login.username = user.val();
+                login.password = pass.value;
+                login.role = rol.val();
+                console.log(login);
+            })
+
+
             /* let carrito = {
                 "productos": [
                     "producto" = {
