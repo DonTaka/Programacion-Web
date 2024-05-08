@@ -12,17 +12,19 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <form action="" class="col-6 mx-auto text-center shadow-lg">
+            <form action="" class="col-6 mx-auto text-center shadow-lg p-3 mt-3">
                 <h2>Regiones</h2>
                 <div class="form-floating">
-                    <select name="optRegion" id="optRegion">
+                    <select name="optRegion" id="optRegion" class="form-select mx-auto text-center">
 
                     </select>
+                    <label for="optRegion">Regiones</label>
                 </div>
                 <div class="form-floating">
-                    <select name="optComuna" id="optComuna">
+                    <select name="optComuna" id="optComuna" class="form-select mx-auto text-center">
 
                     </select>
+                    <label for="optComunas">Comunas</label>
 
                 </div>
                 <div id="resultado">
@@ -41,12 +43,46 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            $.getJSON("https://apis.digital.gob.cl/dpa/regiones", function (data) {
-                console.log(data)
-                /* 
-                                $.each(data, function (i, item) {
-                                    console.log(item);
-                                }) */
+            /* https://apis.digital.gob.cl/dpa/regiones */
+            /* Funcion para rellenar regiones */
+            /* funcion Ajax de jquery permite configurar al detalle la llamada del servicio web
+                especificando toda su configuracion
+                Type: GET || Metodo de solicitud que se realizara al servidor 
+                URL : "URL" || ENlace o ruta en la cual se encuentra el recurso web
+                data : "data" || Opcion de enviar datos hacia el servidor (Generalmente en llamadas POST o PUT)
+                dataType: "Tipo"|| tipon de dato o formatoq ue recibiremos desde el servicio Web (XML, JSON , Etc).
+                            */
+            $.ajax({
+                type: "GET",
+                url: "https://apis.digital.gob.cl/dpa/regiones",
+                data: "data",
+                dataType: "JSONP",
+                success: function (data) {
+                    $.each(data, function (i, tmp) {
+                        $("#optRegion").append("" +
+                            "<option value='" + tmp.codigo +
+                            "'>" + tmp.nombre + "</option>"
+                        )
+                    })
+                }
+            });
+            /* Funcion de Ajax para rellenar Comunas segun la region elegida  */
+            $("#optRegion").change(function () {
+                let comuna = $("#optRegion").val();
+                $.ajax({
+                    type: "GET",
+                    url: "https://apis.digital.gob.cl/dpa/regiones/" + comuna + "/comunas",
+                    data: "data",
+                    dataType: "JSONP",
+                    success: function (data) {
+                        $("#optComuna").html("");
+                        $.each(data, function (i, tmp) {
+                            $("#optComuna").append("" +
+                                "<option>" + tmp.nombre + "</option>"
+                            )
+                        })
+                    }
+                });
             })
         })
     </script>
