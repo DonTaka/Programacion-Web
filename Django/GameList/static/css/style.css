@@ -1,0 +1,11 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: lightblue;
+}
+
+p {
+    font-size: 50px;
+}

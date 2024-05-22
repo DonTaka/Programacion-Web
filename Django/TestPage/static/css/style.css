@@ -1,0 +1,15 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: lightblue;
+}
+
+p {
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+    -webkit-text-stroke: 1px black;
+
+}
