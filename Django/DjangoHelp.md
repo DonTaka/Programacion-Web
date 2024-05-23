@@ -26,7 +26,8 @@ settings.py = archivo de configuraciones <br>
 urls.py = configuracion de rutas de django
 
 Etiquetas de html de django
-
+{% load static %} = permite cargar los recursos de static en la pagina que  
+ se desee utilizarlos <br>
 {% static %} = referencia la ruta static de django <br>
 {% url %} = referencia el archivo de enrutamientos del proyecto urls.py <br>
-{{ variable }} = referencia variable entregada por el context
+{{ variable }} = referencia variable entregada por el context <br>
