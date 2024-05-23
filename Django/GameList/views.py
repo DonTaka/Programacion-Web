@@ -13,3 +13,8 @@ def index(request):
 def page2(request):
     context = {}
     return render(request, "pages/page2.html", context)
+
+
+def page3(request):
+    context = {}
+    return render(request, "pages/page3.html", context)

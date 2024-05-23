@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    {% include 'base/header.html'%}
     <main>
         <img src="" alt="">
         <h3>Bievenido usuario {{ usuario }} </h3>
@@ -18,10 +19,13 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, eum ad. At, pariatur? Ipsum, alias. Ut non
             itaque ea. Quae tempora voluptate numquam. Laborum dicta blanditiis tempore praesentium. Quod, odit.
         </p><br>
-        <a href="{% url 'page2' %}">Ir a pagina 2</a>
+        <a href="{% url 'page2' %}">Ir a pagina 2</a><br>
+        <a href="{% url 'page3' %}">Ir a pagina 3 </a>
+
 
 
     </main>
+    {% include 'base/footer.html'%}
 </body>
 
 </html>
