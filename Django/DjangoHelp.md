@@ -1,3 +1,16 @@
+Pasos de instalacion y creacion de proyecto con django <br>
+1.- Revisar instalaciones de python (py y pip) <br>
+2.- instalar django con comando pip install django <br>
+3.- revisar que el comando django-admin funcione <br>
+4.- levantar el entorno de django <br>
+5.- ingresar a la carpeta por medio del comando cd nombreCarpeta <br>
+6.- crear pagina django <br>
+7.- agregar app al apartado installed_apps del archivo settings.py <br>
+8.- agregar el enrutamiento urls del proyecto al archivo urls.py de Django <br>
+9.- realizar la migracion en proyecto creado <br>
+
+Notas
+
 Comandos de validacion de version e instalacion <br>
 py --version <br>
 pip --version <br>
