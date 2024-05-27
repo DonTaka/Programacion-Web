@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Genero, Usuario
 
 
 # Create your views here.
@@ -12,7 +13,11 @@ def index(request):
 
 
 def page2(request):
-    context = {}
+    """traer todos los usuarios de la BDD"""
+    usuarios = Usuario.objects.all()
+    context = {
+        "usuarios": usuarios,
+    }
     return render(request, "pages/page2.html", context)
 
 

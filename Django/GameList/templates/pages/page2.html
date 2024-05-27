@@ -5,13 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
 </head>
 
 <body>
+    {% include 'base/header.html' %}
     <main>
-        <h2>pagina 2</h2>
-        <a href="{% url 'index' %}"> VOlver al inicio</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 shadow-lg mx-auto text-center">
+                    <table class="table table-dark table-striped table-bordered">
+                        <thead>
+                            <th>Rut</th>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Genero</th>
+                            <th>Correo</th>
+                        </thead>
+                        <tbody>
+                            {% for tmp in usuarios %}
+                            <tr>
+                                <td>{{tmp.rut}}</td>
+                                <td>{{tmp.nombre}}</td>
+                                <td>{{tmp.apellido_paterno}}</td>
+                                <td>{{tmp.apellido_materno}}</td>
+                                <td>{{tmp.id_genero.genero}}</td>
+                                <td>{{tmp.email}}</td>
+                            </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table><br>
+
+                    <a href="{% url 'index' %}"><button class="btn btn-primary my-3">Volver inicio</button></a>
+
+                </div>
+            </div>
+        </div>
     </main>
+    {% include 'base/footer.html' %}
+    <script src=" {% static 'js/bootstrap.bundle.min.js' %}">
+    </script>
 </body>
 
 </html>
