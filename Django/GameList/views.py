@@ -6,6 +6,7 @@ def index(request):
     """context: paquete variables que pueden ser consumidas por el front"""
     context = {
         "usuario": "Jose Riquelme",
+        "carrito": [],
     }
     return render(request, "pages/index.html", context)
 
@@ -17,4 +18,4 @@ def page2(request):
 
 def page3(request):
     context = {}
-    return render(request, "pages/page3.html", context)
+    return render(request, "pages/actividadCSS.html", context)

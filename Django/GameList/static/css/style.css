@@ -4,6 +4,7 @@
 
 body {
     background-color: lightblue;
+    background-image: url('../img/back.jpg');
 }
 
 p {

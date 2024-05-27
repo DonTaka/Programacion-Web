@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    {% include 'base/header.html'%}
+
+    {% include 'base/header.html' %}
     <main>
         <img src="" alt="">
         <h3>Bievenido usuario {{ usuario }} </h3>
@@ -22,10 +23,9 @@
         <a href="{% url 'page2' %}">Ir a pagina 2</a><br>
         <a href="{% url 'page3' %}">Ir a pagina 3 </a>
 
-
-
     </main>
-    {% include 'base/footer.html'%}
+
+    {% include 'base/footer.html' %}
 </body>
 
 </html>
