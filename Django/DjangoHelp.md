@@ -12,18 +12,25 @@ Pasos de instalacion y creacion de proyecto con django <br>
 Notas
 
 Comandos de validacion de version e instalacion <br>
-py --version <br>
-pip --version <br>
-django-admin --version
+py --version : Validar version del python(y que funcione) <br>
+pip --version : Validar version del PIP (y que funcione) <br>
+django-admin --version : Validar version de Django( y que funcione)<br>
 
 Comando para montar entorno de django <br>
 django-admin startproject nombreEntorno
 
-Comando para crear pagina u aplicacion de Django <br>
+Comando para crear aplicacion de Django <br>
 py manage.py startapp nombrePagina||nombreAplicacion
 
 settings.py = archivo de configuraciones <br>
-urls.py = configuracion de rutas de django
+urls.py = configuracion de rutas de django <br>
+models.py = archivo encargado de generar y gestionar modelos de datos creados con Django <br>
+admin.py = archivo encargado de gestionar los modelos que estan registrados en el panel administrativo de Django
+
+Enlaces de interes <br>
+
+Informacion models : https://docs.djangoproject.com/en/5.0/topics/db/models/ <br>
+Informacion Fields del models: https://docs.djangoproject.com/en/5.0/ref/models/fields/ <br>
 
 Etiquetas de html de django <br>
 {% load static %} = permite cargar los recursos de static en la pagina que  
