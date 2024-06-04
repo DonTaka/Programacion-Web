@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+
+<body>
+    {% include 'base/header.html'%}
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 vh-100 p-5 my-3 shadow-lg mx-auto">
+
+                    {% if user != "" %}
+                    <h1>Bienvenido {{ user }} </h1>
+                    {% else %}
+                    <h1>Bienvenido Invitado</h1>
+                    {% endif%}
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde minima nisi voluptatem nulla aut
+                        doloremque
+                        ea magnam rerum velit sint, vitae amet quas perferendis facere molestiae aspernatur dolores vero
+                        minus!
+                    </p><br>
+                    <a href="{% url 'crud' %}" class="d-block w-25 mx-auto">
+                        <button class="btn btn-primary">Mantenedor</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% include 'base/footer.html'%}
+
+    <script src=" {% static 'js/func.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/jquery-3.7.1.js'%}"></script>
+</body>
+
+</html>

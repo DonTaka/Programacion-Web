@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenedor</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+
+<body>
+    {% include 'base/header.html'%}
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 shadow-lg mx-auto text-center p-3">
+                    <h2 class="my-3">Formulario de registro</h2>
+                    <form action="{% url 'user_add' %}" method="POST" class="form-floating">
+                        {% csrf_token %}
+                        <div class="form-floating mb-3 w-25 mx-auto">
+                            <input type="text" class="form-control" id="rut" name="rut">
+                            <label for="rut" class="form-label">Rut</label>
+                        </div>
+                        <div class="form-floating mb-3 w-25 mx-auto">
+                            <input type="text" class="form-control" id="nombre" name="nombre">
+                            <label for="nombre" class="form-label">Nombre</label>
+                        </div>
+                        <div class="form-floating mb-3 w-25 mx-auto">
+                            <input type="text" class="form-control" id="appPaterno" name="appPaterno">
+                            <label for="appPaterno" class="form-label">Apellido Paterno</label>
+                        </div>
+                        <div class="form-floating mb-3 w-25 mx-auto">
+                            <input type="text" class="form-control" id="appMaterno" name="appMaterno">
+                            <label for="appMaterno" class="form-label">Apellido Materno</label>
+                        </div>
+                        <div class="form-floating mb-3 w-25 mx-auto">
+                            <input type="date" class="form-control" id="fecha" name="fecha">
+                            <label for="fecha" class="form-label">Fecha</label>
+                        </div>
+                        <div class="form-floating mb-3 w-25 mx-auto">
+                            <select class="form-select" id="genero" name="genero">
+                                {% for tmp in generos %}
+                                <option value="{{tmp.id_genero}}">{{tmp.genero}}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="genero" class="form-label">Genero</label>
+                        </div>
+                        <div class="form-floating mb-3 w-25 mx-auto">
+                            <input type="email" class="form-control" id="correo" name="correo">
+                            <label for="correo" class="form-label">Correo</label>
+                        </div>
+                        <div class="form-floating mb-3 w-25 mx-auto">
+                            <input type="password" class="form-control" id="password" name="password">
+                            <label for="password" class="form-label">Contraseña</label>
+                        </div>
+                        <div class="form-floating mb-3 w-25 mx-auto">
+                            <input type="text" class="form-control" id="telefono" name="telefono">
+                            <label for="telefono" class="form-label">Telefono</label>
+                        </div>
+                        <div class="form-floating mb-3 w-25 mx-auto">
+                            <input type="text" class="form-control" id="direccion" name="direccion">
+                            <label for="direccion" class="form-label">Direccion</label>
+                        </div>
+                        {% if mensaje %}
+                        <div class="alert alert-success w-50 mx-auto">
+                            {{mensaje}}
+                        </div>
+                        {% endif %}
+                        <div>
+                            <button type="submit" class="btn btn-success">Agregar Registro</button><br>
+                            <a href="{% url 'crud'%}"><button type="button"
+                                    class="btn btn-primary mt-3">Volver</button></a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% include 'base/footer.html'%}
+
+    <script src='{% static 'js/bootstrap.bundle.min.js' %}'></script>
+</body>
+
+</html>

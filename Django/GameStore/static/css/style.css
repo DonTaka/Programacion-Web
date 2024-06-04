@@ -1,0 +1,19 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: lightblue;
+}
+
+p,
+h1,
+h2,
+h3 {
+    font-size: 25px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bolder;
+    color: white;
+    -webkit-text-stroke: 1px black;
+}

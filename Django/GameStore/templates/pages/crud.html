@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenedor</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+
+<body>
+    {% include 'base/header.html'%}
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 shadow-lg mx-auto text-center p-3">
+                    <h2 class="my-3">Lista Usuarios</h2>
+                    <table class="table table-dark table-hover table-bordered">
+                        <thead>
+                            <th>Rut</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Modificar</th>
+                            <th>Eliminar</th>
+                        </thead>
+                        <tbody>
+                            {% if usuarios %}
+                            {% for tmp in usuarios%}
+                            <tr>
+                                <td>{{tmp.rut}}</td>
+                                <td>{{tmp.nombre}}</td>
+                                <td>{{tmp.apellido_paterno}}</td>
+                                <td><a href=""><button class="btn btn-warning">Modificar</button></a></td>
+                                <td><a href=""><button class="btn btn-danger">Eliminar</button></a></td>
+                            </tr>
+                            {% endfor%}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                    {% if mensaje%}
+                    <div class="alert alert-info w-50 mx-auto">
+                        {{mensaje}}
+                    </div>
+                    {% endif %}
+                    <a href="{% url 'user_add' %}">
+                        <button class="btn btn-primary">Agregar Registro</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% include 'base/footer.html'%}
+
+    <script src='{% static 'js/bootstrap.bundle.min.js' %}'></script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenedor</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+
+<body>
+    {% include 'base/header.html'%}
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 shadow-lg mx-auto text-center p-3">
+                    {% comment %} Trabaja aqui {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </main>
+    {% include 'base/footer.html'%}
+
+    <script src='{% static 'js/bootstrap.bundle.min.js' %}'></script>
+</body>
+
+</html>
