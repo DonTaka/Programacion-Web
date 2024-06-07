@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mantenedor</title>
+    <title>Modificar</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
@@ -51,7 +51,7 @@
                                 <option value="{{tmp.id_genero}}" selected>{{tmp.genero}}</option>
                                 {%else%}
                                 <option value="{{tmp.id_genero}}">{{tmp.genero}}</option>
-                                {%endif%}
+                                {% endif%}
                                 {% endfor %}
                             </select>
                             <label for="genero" class="form-label">Genero</label>

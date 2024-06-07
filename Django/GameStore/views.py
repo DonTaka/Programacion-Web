@@ -64,35 +64,37 @@ def user_del(request, pk):
     try:
         usuario = Usuario.objects.get(rut=pk)
         usuario.delete()
+
         usuarios = Usuario.objects.all()
         context = {
-            "mensaje": "Eliminado con exito",
+            "mensaje": "Registro eliminado",
             "usuarios": usuarios,
         }
+
         return render(request, "pages/crud.html", context)
     except:
         usuarios = Usuario.objects.all()
         context = {
-            "mensaje": "Error , rut no encontrado...",
+            "mensaje": "Error, Rut no encontrado...",
             "usuarios": usuarios,
         }
         return render(request, "pages/crud.html", context)
 
 
-def user_find(request, pk):
-    try:
+def user_findEdit(request, pk):
+    if pk != "":
         usuario = Usuario.objects.get(rut=pk)
         generos = Genero.objects.all()
 
         context = {
-            "generos": generos,
             "usuario": usuario,
+            "generos": generos,
         }
-        return render(request, "pages/user_edit.html", context)
-    except:
+        return render(request, "pages/user_update.html", context)
+    else:
         usuarios = Usuario.objects.all()
         context = {
-            "mensaje": "error, Rut no encontrado",
+            "mensaje": "Error, Rut no encontrado...",
             "usuarios": usuarios,
         }
         return render(request, "pages/crud.html", context)
@@ -128,11 +130,11 @@ def user_update(request):
             activo=activo,
         )
         obj.save()
+
         generos = Genero.objects.all()
-        usuario = Usuario.objects.get(rut=rut)
         context = {
+            "mensaje": "Usuario modificado con exito",
             "generos": generos,
-            "usuario": usuario,
-            "mensaje": "Modificado con exito",
+            "usuario": obj,
         }
-        return render(request, "pages/user_edit.html", context)
+        return render(request, "pages/user_update.html", context)

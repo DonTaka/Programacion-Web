@@ -32,7 +32,7 @@
                                 <td>{{tmp.rut}}</td>
                                 <td>{{tmp.nombre}}</td>
                                 <td>{{tmp.apellido_paterno}}</td>
-                                <td><a href="{% url 'user_find' pk=tmp.rut%}"><button class="btn btn-warning">Modificar</button></a></td>
+                                <td><a href="{% url 'user_findEdit' pk=tmp.rut%}"><button class="btn btn-warning">Modificar</button></a></td>
                                 <td><a href="{% url 'user_del' pk=tmp.rut %}"><button
                                             class="btn btn-danger">Eliminar</button></a></td>
                             </tr>
@@ -41,10 +41,10 @@
                         </tbody>
                     </table>
                     {% if mensaje%}
-                    <div class="alert alert-info w-50 mx-auto">
+                    <div class="alert alert-danger w-50 mx-auto">
                         {{mensaje}}
                     </div>
-                    {% endif %}
+                    {% endif%}
                     <a href="{% url 'user_add' %}">
                         <button class="btn btn-primary">Agregar Registro</button>
                     </a>
