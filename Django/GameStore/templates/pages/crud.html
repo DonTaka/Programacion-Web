@@ -33,8 +33,7 @@
                                 <td>{{tmp.nombre}}</td>
                                 <td>{{tmp.apellido_paterno}}</td>
                                 <td><a href="{% url 'user_findEdit' pk=tmp.rut%}"><button class="btn btn-warning">Modificar</button></a></td>
-                                <td><a href="{% url 'user_del' pk=tmp.rut %}"><button
-                                            class="btn btn-danger">Eliminar</button></a></td>
+                                <td><a href="{% url 'user_del' pk=tmp.rut%}"><button class="btn btn-danger">Eliminar</button></a></td>
                             </tr>
                             {% endfor%}
                             {% endif %}

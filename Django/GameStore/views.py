@@ -67,41 +67,47 @@ def user_del(request, pk):
 
         usuarios = Usuario.objects.all()
         context = {
-            "mensaje": "Registro eliminado",
+            "mensaje": "Registro Eliminado",
             "usuarios": usuarios,
         }
-
         return render(request, "pages/crud.html", context)
     except:
         usuarios = Usuario.objects.all()
         context = {
-            "mensaje": "Error, Rut no encontrado...",
+            "mensaje": "Error,Rut no encontrado...",
             "usuarios": usuarios,
         }
         return render(request, "pages/crud.html", context)
 
-
-def user_findEdit(request, pk):
-    if pk != "":
+def user_findEdit(request,pk):
+    if pk!="":
+        """ 
+            objects.get() = Obtener datos con filtro
+            objects.all() = Obtener todos
+        """
         usuario = Usuario.objects.get(rut=pk)
         generos = Genero.objects.all()
 
-        context = {
-            "usuario": usuario,
-            "generos": generos,
+        context={
+            "usuario":usuario,
+            "generos":generos,
         }
-        return render(request, "pages/user_update.html", context)
+        return render(request,"pages/user_update.html",context)
     else:
         usuarios = Usuario.objects.all()
-        context = {
-            "mensaje": "Error, Rut no encontrado...",
-            "usuarios": usuarios,
+        context={
+            "mensaje":"Error,Rut no encontrado",
+            "usuarios":usuarios
         }
-        return render(request, "pages/crud.html", context)
-
+        return render(request,"pages/crud.html",context)
 
 def user_update(request):
-    if request.method == "POST":
+    if request.method=="POST":
+        """ 
+            Capturo todos los datos del front
+            Identificamos
+            Asignamos nombre 
+        """
         rut = request.POST["rut"]
         nombre = request.POST["nombre"]
         appPaterno = request.POST["appPaterno"]
@@ -114,7 +120,10 @@ def user_update(request):
         direccion = request.POST["direccion"]
         activo = True
 
+        """ Obtengo genero desde la BDD para modificar """
         objGenero = Genero.objects.get(id_genero=genero)
+
+        """ Genero la instancia """
 
         obj = Usuario(
             rut=rut,
@@ -133,8 +142,9 @@ def user_update(request):
 
         generos = Genero.objects.all()
         context = {
-            "mensaje": "Usuario modificado con exito",
-            "generos": generos,
-            "usuario": obj,
+            "mensaje": "Modificado con Exito",
+            "generos":generos,
+            "usuario":obj,
         }
         return render(request, "pages/user_update.html", context)
+        
