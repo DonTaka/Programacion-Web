@@ -16,44 +16,35 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 shadow-lg mx-auto text-center p-3">
-                    <h2 class="my-3">Lista Usuarios</h2>
                     <table class="table table-dark table-hover table-bordered">
                         <thead>
-                            <th>Rut</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
+                            <th>ID Genero</th>
+                            <th>Genero</th>
                             <th>Modificar</th>
                             <th>Eliminar</th>
                         </thead>
                         <tbody>
-                            {% if usuarios %}
-                            {% for tmp in usuarios%}
+                            {% if generos%}
+                            {% for tmp in generos%}
                             <tr>
-                                <td>{{tmp.rut}}</td>
-                                <td>{{tmp.nombre}}</td>
-                                <td>{{tmp.apellido_paterno}}</td>
-                                <td><a href="{% url 'user_findEdit' pk=tmp.rut%}"><button
+                                <td>{{tmp.id_genero}}</td>
+                                <td>{{tmp.genero}}</td>
+                                <td><a href="{% url 'genero_edit' pk=tmp.id_genero %}"><button
                                             class="btn btn-warning">Modificar</button></a></td>
-                                <td><a href="{% url 'user_del' pk=tmp.rut%}"><button
+                                <td><a href="{% url 'genero_del' pk=tmp.id_genero %}"><button
                                             class="btn btn-danger">Eliminar</button></a></td>
                             </tr>
                             {% endfor%}
-                            {% endif %}
+                            {% endif%}
                         </tbody>
                     </table>
                     {% if mensaje%}
-                    <div class="alert alert-danger w-50 mx-auto">
+                    <div class="alert alert-danger w-50 mx-auto text-center">
                         {{mensaje}}
                     </div>
                     {% endif%}
-                    <a href="{% url 'user_add' %}">
-                        <button class="btn btn-primary">Agregar Registro</button>
-                    </a>
-                    <a href="{% url 'crud_genero' %}">
-                        <button class="btn btn-info">
-                            Ver generos
-                        </button>
-                    </a>
+                    <a href="{% url 'genero_add' %}"><button class="btn btn-primary">Agregar genero</button></a>
+                    <a href="{% url 'crud'%}"><button class="btn btn-secondary">Volver</button></a>
                 </div>
             </div>
         </div>
