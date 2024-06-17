@@ -16,7 +16,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 shadow-lg mx-auto text-center p-3">
-                    <h2 class="my-3">Lista Usuarios</h2>
+                    <h2 class="my-3">Lista Usuarios</h2><br>
+                    {% if request.user.is_authenticated %}
+                        <h3 class="my-3"> Bienvenido {{request.user.username}}</h3>
+                        <a href="{% url 'logout' %} "><button class="btn btn-danger">LogOut</button></a>
+                    {% else%}
+                        <h3 class="my-3"> Bienvenido Invitado</h3>
+                    
+                    {% endif%}
                     <table class="table table-dark table-hover table-bordered">
                         <thead>
                             <th>Rut</th>

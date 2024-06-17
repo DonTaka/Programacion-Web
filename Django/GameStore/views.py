@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import Genero, Usuario
 from .forms import GeneroForm,UsuarioForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login,logout
+from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 def index(request):
@@ -9,7 +12,7 @@ def index(request):
     }
     return render(request, "pages/index.html", context)
 
-
+@login_required
 def crud(request):
     usuarios = Usuario.objects.all()
     context = {
@@ -147,7 +150,7 @@ def user_update(request):
             "usuario":obj,
         }
         return render(request, "pages/user_update.html", context)
- 
+@login_required
 def crud_genero(request):
     generos = Genero.objects.all()
 
@@ -222,3 +225,32 @@ def genero_edit(request,pk):
             "generos":generos
         }
         return render(request,"pages/crud_genero.html",context)
+
+""" Login methods """
+def conectar(request):
+    if request.method == 'POST':
+        username = request.POST['user']
+        password = request.POST['pass']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            usuarios = Usuario.objects.all()
+            context = {
+                "usuarios":usuarios,
+            }
+            return render(request,"pages/crud.html",context)
+        else:            
+            context = {
+                "design" :"alert alert-danger w-50 mx-auto text-center",
+                "mensaje":"Credenciales invalidas"
+            }
+            return render(request, 'accounts/login.html',context)    
+    return render(request, 'accounts/login.html')
+
+def desconectar(request):
+    logout(request)
+    context = {
+        "design" :"alert alert-success w-50 mx-auto text-center",
+        "mensaje":"Desconectado con exito"
+    }
+    return render(request,'accounts/login.html',context)
