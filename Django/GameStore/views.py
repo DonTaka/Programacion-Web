@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from .models import Genero, Usuario
 from .forms import GeneroForm,UsuarioForm
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login,logout
-from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 def index(request):
@@ -150,6 +149,7 @@ def user_update(request):
             "usuario":obj,
         }
         return render(request, "pages/user_update.html", context)
+    
 @login_required
 def crud_genero(request):
     generos = Genero.objects.all()
@@ -226,31 +226,58 @@ def genero_edit(request,pk):
         }
         return render(request,"pages/crud_genero.html",context)
 
-""" Login methods """
-def conectar(request):
-    if request.method == 'POST':
-        username = request.POST['user']
-        password = request.POST['pass']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
+def loginSession(request):
+    if request.method=="POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        if username == "j.riquelmee" and password=="pass1234":
+            request.session["user"] = username
             usuarios = Usuario.objects.all()
             context = {
                 "usuarios":usuarios,
             }
             return render(request,"pages/crud.html",context)
-        else:            
-            context = {
-                "design" :"alert alert-danger w-50 mx-auto text-center",
-                "mensaje":"Credenciales invalidas"
+        else:
+            context ={
+                "mensaje":"Usuario o contraseña incorrecta",
+                "design" : "alert alert-danger w-50 mx-auto text-center",
             }
-            return render(request, 'accounts/login.html',context)    
-    return render(request, 'accounts/login.html')
+            return render(request,"pages/login.html",context)
+    else:
+        context = {
+        }
+        return render(request,"pages/login.html",context)
+
+def conectar(request):
+    if request.method=="POST":
+        #Corresponde al formulario
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request,username=username,password=password)
+        if user is not None:
+            login(request,user)
+            usuarios = Usuario.objects.all()
+            context = {
+                "usuarios":usuarios,
+            }
+            return render(request,"pages/crud.html",context)
+        else:
+            context = {
+                "mensaje":"Usuario o contraseña incorrecta",
+                "design":"alert alert-danger w-50 mx-auto text-center",
+            }
+            return render(request,"pages/login.html",context)
+    else:
+        #Corresponde a redireccionar
+        context = {
+        }
+        return render(request,"pages/login.html",context)
 
 def desconectar(request):
+    #del request.session["user"]
     logout(request)
     context = {
-        "design" :"alert alert-success w-50 mx-auto text-center",
-        "mensaje":"Desconectado con exito"
+        "mensaje":"Sesion cerrada",
+        "design":"alert alert-info w-50 mx-auto text-center",
     }
-    return render(request,'accounts/login.html',context)
+    return render(request,"pages/login.html",context)

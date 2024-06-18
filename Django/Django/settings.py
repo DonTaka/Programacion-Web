@@ -55,7 +55,7 @@ ROOT_URLCONF = "Django.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "GameStore/templates"],
+        "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -67,11 +67,14 @@ TEMPLATES = [
         },
     },
 ]
-""" Ruta encargada de login """
+
+# LOGIN_URL
 LOGIN_URL = "login"
-""" Donde redireccionar al conectar """
+
+# LOGIN_REDIRECT_URL
 LOGIN_REDIRECT_URL = "crud"
-""" Donde redireccionar al desconectar """
+
+# LOGOUT_REDIRECT_URL
 LOGOUT_REDIRECT_URL = "logout"
 
 WSGI_APPLICATION = "Django.wsgi.application"
