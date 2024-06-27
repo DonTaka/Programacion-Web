@@ -18,6 +18,7 @@
                 <div class="col-md-8 shadow-lg mx-auto text-center p-3">
                     <form action="{% url 'login' %}" method="POST">
                         {% csrf_token %}
+                        <h2>Login de Acceso</h2>
                         <div class="form-floating mb-3 w-25 mx-auto">
                             <input type="text" class="form-control" id="username" name="username" placeholder="">
                             <label for="username" class="form-label">Usuario</label>
@@ -27,14 +28,15 @@
                             <label for="password" class="form-label">Contraseña</label>
                         </div>
                         {% if mensaje %}
-                        <div class="{{design}}">
+                        <div class='{{design}}'>
                             {{mensaje}}
                         </div>
                         {% endif%}
                         <div class="form-floating mb-3 w-25 mx-auto">
-                            <button class="btn btn-primary">Ingresar</button>
+                            <button type="submit" class="btn btn-primary">Ingresar</button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>

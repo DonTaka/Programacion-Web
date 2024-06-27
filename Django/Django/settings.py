@@ -77,6 +77,7 @@ LOGIN_REDIRECT_URL = "crud"
 # LOGOUT_REDIRECT_URL
 LOGOUT_REDIRECT_URL = "logout"
 
+
 WSGI_APPLICATION = "Django.wsgi.application"
 
 

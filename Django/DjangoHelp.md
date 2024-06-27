@@ -16,11 +16,20 @@ py --version : Validar version del python(y que funcione) <br>
 pip --version : Validar version del PIP (y que funcione) <br>
 django-admin --version : Validar version de Django( y que funcione)<br>
 
+Comandos de consola/terminal de windows:
+cd = comando para navegar entre directorios
+cd .. = comando de navegacion para subir un nivel en el directorio
+dir = ver el directorio con sus carpetas y archivos
+
 Comando para montar entorno de django <br>
 django-admin startproject nombreEntorno
 
 Comando para crear aplicacion de Django <br>
 py manage.py startapp nombrePagina||nombreAplicacion
+
+Comando para inicializar:
+py manage.py runserver = comando para iniciar el servidor Django
+Nota: Aplicar comando dir y verificar que en la ruta este el archivo "manage.py"
 
 settings.py = archivo de configuraciones <br>
 urls.py = configuracion de rutas de django <br>

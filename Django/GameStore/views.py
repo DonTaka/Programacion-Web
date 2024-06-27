@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Genero, Usuario
 from .forms import GeneroForm,UsuarioForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -230,7 +230,7 @@ def loginSession(request):
     if request.method=="POST":
         username = request.POST["username"]
         password = request.POST["password"]
-        if username == "j.riquelmee" and password=="pass1234":
+        if username=="j.riquelmee" and password=="pass1234":
             request.session["user"] = username
             usuarios = Usuario.objects.all()
             context = {
@@ -238,19 +238,19 @@ def loginSession(request):
             }
             return render(request,"pages/crud.html",context)
         else:
-            context ={
+            context = {
                 "mensaje":"Usuario o contraseña incorrecta",
-                "design" : "alert alert-danger w-50 mx-auto text-center",
+                "design":"alert alert-danger w-50 mx-auto text-center",
             }
             return render(request,"pages/login.html",context)
     else:
         context = {
+
         }
         return render(request,"pages/login.html",context)
 
 def conectar(request):
     if request.method=="POST":
-        #Corresponde al formulario
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request,username=username,password=password)
@@ -268,16 +268,17 @@ def conectar(request):
             }
             return render(request,"pages/login.html",context)
     else:
-        #Corresponde a redireccionar
         context = {
+
         }
         return render(request,"pages/login.html",context)
 
-def desconectar(request):
-    #del request.session["user"]
-    logout(request)
+def desconectar(request):   
+    if request.user.is_authenticated:
+        logout(request)
+    
     context = {
-        "mensaje":"Sesion cerrada",
-        "design":"alert alert-info w-50 mx-auto text-center",
+        "mensaje":"Desconectado con exito",
+        "design":"alert alert-success w-50 mx-auto text-center",
     }
     return render(request,"pages/login.html",context)
